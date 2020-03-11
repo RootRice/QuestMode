@@ -168,7 +168,11 @@ public class LevelManager : MonoBehaviour {
         goblinsGoldText.SetText("2gx" + goblinKillCounter.ToString());
         leadersGoldText.SetText("20gx" + goblinLeaderKillCounter.ToString());
 
+        int goldToAdd = goblinKillCounter * 2 + goblinLeaderKillCounter * 20;
         totalText.SetText("Total" + (goblinKillCounter * 2 + goblinLeaderKillCounter * 20).ToString() + "g");
+
+        int currentGold = PlayerPrefs.GetInt("Gold");
+        PlayerPrefs.SetInt("Gold", currentGold + goldToAdd);
 
     }
 
